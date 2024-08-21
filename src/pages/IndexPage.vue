@@ -1,5 +1,11 @@
 <template>
   <q-page class="row items-center justify-evenly">
+    <q-slider
+      :model-value="slider"
+      :min="0"
+      :max="10"
+      :marker-labels="range(0,10)"
+    />
     <example-component
       title="Example component"
       active
@@ -44,4 +50,14 @@ const todos = ref<Todo[]>([
 const meta = ref<Meta>({
   totalCount: 1200
 });
+
+const slider = ref<number>(0)
+
+function range(min: number, max: number) {
+  const result: number[] = [];
+  for (let i = min; i <= max; i++) {
+    result.push(i);
+  }
+  return result;
+}
 </script>
